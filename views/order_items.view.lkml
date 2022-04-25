@@ -57,6 +57,7 @@ view: order_items {
   # Click on the type parameter to see all the options in the Quick Help panel on the right.
 
   measure: total_sale_price {
+    hidden: yes
     type: sum
     sql: ${sale_price} ;;
   }
