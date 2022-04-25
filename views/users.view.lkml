@@ -89,6 +89,18 @@ view: users {
     sql: concat(${users.first_name}, " ", ${users.last_name}) ;;
   }
 
+  dimension: lenght_name {
+    type: number
+    sql: length(${users.full_name}) ;;
+  }
+
+  dimension: age_tier {
+    type: tier
+    sql: ${TABLE}.age_tier ;;
+    tiers: [0,10,20,30,40,50,60,70,80,90]
+    style: integer
+  }
+
   dimension: state {
     map_layer_name: us_states
     type: string
