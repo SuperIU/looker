@@ -84,6 +84,11 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
+  dimension: full_name {
+    type: string
+    sql: concat(${users.first_name}, " ", ${users.last_name}) ;;
+  }
+
   dimension: state {
     map_layer_name: us_states
     type: string
