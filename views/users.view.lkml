@@ -86,7 +86,7 @@ view: users {
 
   dimension: full_name {
     type: string
-    sql: concat(${users.first_name}, " ", ${users.last_name}) ;;
+    sql: concat(${TABLE}.first_name,' ',${TABLE}.last_name) ;;
   }
 
   dimension: lenght_name {
@@ -96,7 +96,7 @@ view: users {
 
   dimension: age_tier {
     type: tier
-    sql: ${TABLE}.age_tier ;;
+    sql: ${age} ;;
     tiers: [0,10,20,30,40,50,60,70,80,90]
     style: integer
   }
