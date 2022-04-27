@@ -89,6 +89,11 @@ view: users {
     sql: concat(${TABLE}.first_name,${TABLE}.last_name) ;;
   }
 
+  dimension: full_name1 {
+    type: string
+    sql: concat(${TABLE}.first_name, ' ',${TABLE}.last_name) ;;
+  }
+
   dimension: lenght_name {
     type: number
     sql: length(${users.full_name}) ;;
