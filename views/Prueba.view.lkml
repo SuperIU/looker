@@ -1,11 +1,9 @@
-  # If necessary, uncomment the line below to include explore_source.
+# If necessary, uncomment the line below to include explore_source.
 # include: "ecommerce_balcazar.model.lkml"
 
 view: prueba {
   derived_table: {
     explore_source: order_items {
-      column: created_year { field: orders.created_year }
-      column: count { field: orders.count }
       column: user_id {
         field: order_items.user_id
       }
@@ -17,12 +15,7 @@ view: prueba {
       }
     }
   }
-  dimension: created_year {
-    type: date_year
-  }
-  dimension: count {
-    type: number
-  }
+  # Define the view's fields as desired
   dimension: user_id {
     hidden: yes
   }
@@ -32,4 +25,5 @@ view: prueba {
   dimension: lifetime_customer_value {
     type: number
   }
+
 }
