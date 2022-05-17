@@ -61,6 +61,7 @@ view: order_items {
     hidden: yes
     type: sum
     sql: ${sale_price} ;;
+    value_format: "$#,##0"
   }
 
   measure: total_revenue {
@@ -72,6 +73,7 @@ view: order_items {
   measure: average_sale_price {
     type: average
     sql: ${sale_price} ;;
+    value_format: "$#,##0"
   }
 
   measure: count {
