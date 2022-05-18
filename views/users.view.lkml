@@ -34,6 +34,7 @@ view: users {
   measure: average_age {
     type: average
     sql: ${age} ;;
+    value_format: "#,###.00"
   }
 
   dimension: city {
