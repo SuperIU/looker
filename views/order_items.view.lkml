@@ -62,6 +62,35 @@ view: order_items {
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
+  dimension_group: created {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.created_at ;;
+  }
+
+  dimension_group: delivered {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}.delivered_at ;;
+  }
+
   dimension_group: returned {
     type: time
     timeframes: [
@@ -81,6 +110,12 @@ view: order_items {
     type: number
     sql: ${TABLE}.sale_price ;;
     value_format: "$#,##0"
+  }
+
+  dimension: user_id {
+    type: number
+    # hidden: yes
+    sql: ${TABLE}.user_id ;;
   }
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
