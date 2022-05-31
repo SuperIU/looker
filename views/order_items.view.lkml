@@ -24,18 +24,18 @@ view: order_items {
     }
   }
 
-  #dimension: dynamic_timeframe {
-  #  label_from_parameter: select_timeframe
-  #  type: string
-  #  sql:
-  #  {% if select_timeframe._parameter_value == 'created_date' %}
-  #  ${created_date}
-  #  {% elsif select_timeframe._parameter_value == 'created_week' %}
-  #  ${created_week}
-  #  {% else %}
-  #  ${created_month}
-  #  {% endif %} ;;
-  #}
+  dimension: dynamic_timeframe {
+    label_from_parameter: select_timeframe
+    type: string
+    sql:
+    {% if select_timeframe._parameter_value == 'created_date' %}
+    ${created_date}
+    {% elsif select_timeframe._parameter_value == 'created_week' %}
+    ${created_week}
+    {% else %}
+    ${created_month}
+    {% endif %} ;;
+  }
 
   dimension: id {
     primary_key: yes
