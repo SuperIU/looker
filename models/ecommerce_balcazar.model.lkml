@@ -31,6 +31,12 @@ explore: inventory_items {
 }
 
 explore: order_items {
+  join: brand_order_facts {
+    type: left_outer
+    sql_on: ${inventory_items.product_brand} = ${brand_order_facts.product_brand} ;;
+    relationship: many_to_one
+  }
+
   join: user_facts {
     type: left_outer
     sql_on: ${order_items.user_id} = ${user_facts.user_id};;
