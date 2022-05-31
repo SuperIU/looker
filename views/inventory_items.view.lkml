@@ -43,13 +43,14 @@ view: inventory_items {
     type: time
     timeframes: [
       raw,
-      time,
       date,
       week,
       month,
       quarter,
       year
     ]
+    convert_tz: no
+    datatype: date
     sql: ${TABLE}.created_at ;;
   }
 
