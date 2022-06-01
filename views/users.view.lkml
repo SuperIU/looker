@@ -1,7 +1,9 @@
 # The name of this view in Looker is "Users"
+include: location.view
 view: users {
   # The sql_table_name parameter indicates the underlying database table
   # to be used for all fields in this view.
+  extends: [location]
   sql_table_name: public.users ;;
   drill_fields: [id]
   # This primary key is the unique key for this table in the underlying database.
