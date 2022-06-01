@@ -22,20 +22,6 @@ view: inventory_items {
     sql: ${TABLE}.cost ;;
   }
 
-  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
-  # measures for this dimension, but you can also add measures of many different aggregates.
-  # Click on the type parameter to see all the options in the Quick Help panel on the right.
-
-  measure: total_cost {
-    type: sum
-    sql: ${cost} ;;
-  }
-
-  measure: average_cost {
-    type: average
-    sql: ${cost} ;;
-  }
-
   # Dates and timestamps can be represented in Looker using a dimension group of type: time.
   # Looker converts dates and timestamps to the specified timeframes within the dimension group.
 
@@ -107,6 +93,20 @@ view: inventory_items {
       year
     ]
     sql: ${TABLE}.sold_at ;;
+  }
+
+  # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
+  # measures for this dimension, but you can also add measures of many different aggregates.
+  # Click on the type parameter to see all the options in the Quick Help panel on the right.
+
+  measure: total_cost {
+    type: sum
+    sql: ${cost} ;;
+  }
+
+  measure: average_cost {
+    type: average
+    sql: ${cost} ;;
   }
 
   measure: count {
