@@ -26,14 +26,14 @@ view: brand_order_facts {
     type: string
     sql: ${brand_rank} || ') ' || ${brand} ;;
   }
-  dimension: brand_rank_top_5 {
+  dimension: brand_rank_top_8 {
     hidden: yes
     type: yesno
-    sql: ${brand_rank} <= 5 ;;
+    sql: ${brand_rank} <= 8 ;;
   }
   dimension: brand_rank_grouped {
     label: "Brand Name Grouped"
     type: string
-    sql: case when ${brand_rank_top_5} then ${brand_rank_concat} else '6) Other' end ;;
+    sql: case when ${brand_rank_top_8} then ${brand_rank_concat} else '9) Other' end ;;
   }
 }

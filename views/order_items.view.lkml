@@ -133,7 +133,15 @@ view: order_items {
     type: sum
     sql: ${sale_price} ;;
     value_format: "$#,##0"
-  }
+    html: {% if value > 20000.00 %}
+    <p style="color: white; background-color: ##FFC20A; margin: 0; border-radius: 5px">{{ rendered_value }}</p>
+    {% elsif value > 12000.00 %}
+    <p style="color: white; background-color: #0C7BDC; margin: 0; border-radius: 5px">{{ rendered_value }}</p>
+    {% else %}
+    <p style="color: white; background-color: #6D7170; margin: 0; border-radius: 5px">{{ rendered_value }}</p>
+    {% endif %}
+    ;;
+    }
 
   measure: total_revenue_conditional {
     type: sum
